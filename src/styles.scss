@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss"; 
+
+/* PrimeNG themes */
+// @import "primeng/resources/themes/lara-light-blue/theme.css";  // default
+// @import "primeng/resources/themes/lara-dark-blue/theme.css";   // for dark mode
+// @import "primeng/resources/primeng.min.css";
+@import "primeicons/primeicons.css";
+@custom-variant dark (&:where(.dark, .dark *));

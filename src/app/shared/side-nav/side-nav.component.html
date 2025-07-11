@@ -1,0 +1,23 @@
+<div [ngClass]="{ 'w-64': isOpen, 'w-16': !isOpen }" class="h-full border-r dark:border-gray-700 p-4 transition-all">
+  <!-- Logo -->
+  <div class="flex items-center justify-center h-12 font-bold text-lg">
+    <span *ngIf="isOpen">MyApp</span>
+    <i *ngIf="!isOpen" class="pi pi-apple text-xl"></i>
+  </div>
+
+  <!-- Nav Items -->
+  <ul class="mt-8 space-y-4">
+    <li class="flex items-center gap-3 cursor-pointer hover:text-blue-600">
+      <i class="pi pi-home"></i>
+      <span *ngIf="isOpen">Dashboard</span>
+    </li>
+    <li class="flex items-center gap-3 cursor-pointer hover:text-blue-600">
+      <i class="pi pi-users"></i>
+      <span *ngIf="isOpen">Users</span>
+    </li>
+    <li class="flex items-center gap-3 cursor-pointer hover:text-blue-600">
+      <i class="pi pi-cog"></i>
+      <span *ngIf="isOpen">Settings</span>
+    </li>
+  </ul>
+</div>

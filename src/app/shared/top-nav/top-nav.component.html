@@ -1,0 +1,18 @@
+<div class="flex items-center justify-between h-16 px-4 border-b dark:border-gray-700">
+  <!-- Hamburger (only visible on small screens) -->
+  <button (click)="toggleSidebar.emit()" class="p-button p-button-text">
+    <i class="pi pi-bars"></i>
+  </button>
+
+  <!-- Right: Profile Avatar and Dropdown Menu -->
+  <div class="relative">
+    <button (click)="toggleProfileMenu($event)" class="rounded-full focus:outline-none">
+      <img src="https://i.pravatar.cc/40" class="rounded-full w-10 h-10" />
+    </button>
+
+    <p-button (onClick)="toggleTheme()">Toggle Theme</p-button>
+
+    <!-- PrimeNG Menu -->
+    <p-menu #profileMenu [popup]="true" [model]="profileItems"></p-menu>
+  </div>
+</div>
