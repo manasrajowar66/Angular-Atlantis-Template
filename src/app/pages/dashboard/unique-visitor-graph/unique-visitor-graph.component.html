@@ -1,0 +1,23 @@
+<div class="bg-[var(--app-surface-color)] rounded-xl p-4">
+    <div class="flex items-center justify-between leading-loose">
+        <span class="font-medium text-sm">Unique Visitor Graph</span>
+        <p-select [options]="years" [(ngModel)]="selectedYear" (ngModelChange)="setChartData($event.value)" optionLabel="name" placeholder="Select a year"
+            class="w-30 text-gray-400" />
+    </div>
+    <div class="grid grid-cols-2 mt-6 gap-4">
+        <div class="flex flex-col gap-4">
+            <span class="text-3xl font-semibold">$620,076</span>
+            <span class="font-semibold">MRR GROWTH</span>
+            <p class="text-gray-400 text-sm">Measure how fast you’re growing mothly recurring revenue.</p>
+        </div>
+        <div class="flex flex-col gap-4">
+            <span class="text-3xl font-semibold">$1,120</span>
+            <span class="font-semibold">AVG. MRR/CUSTOMER</span>
+            <p class="text-gray-400 text-sm">The revenue generated per account on a monthly or yearly basis.</p>
+        </div>
+    </div>
+    <div class="flex flex-col gap-3 mt-6">
+        <span class="text-xl font-semibold">Revenue</span>
+        <p-chart type="bar" [data]="chartData" [options]="chartOptions" height="400"></p-chart>
+    </div>
+</div>

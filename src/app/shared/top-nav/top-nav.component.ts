@@ -1,13 +1,15 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Menu, MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
-import { Button } from 'primeng/button';
 import { ThemeService } from '../../service/theme.service';
+import { ButtonModule } from 'primeng/button';
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-top-nav',
   templateUrl: './top-nav.component.html',
-  imports: [MenuModule, Button],
+  imports: [MenuModule, ButtonModule, BreadcrumbComponent, CommonModule],
 })
 export class TopNavComponent {
   @Output() toggleSidebar = new EventEmitter<void>();
@@ -36,5 +38,9 @@ export class TopNavComponent {
 
   toggleTheme(){
     this.themeService.toggleTheme();
+  }
+
+  get isDarkMode (): boolean{
+    return this.themeService.isDark();
   }
 }

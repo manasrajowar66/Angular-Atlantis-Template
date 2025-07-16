@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@tailwind utilities;
+/* PrimeNG themes */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* @import "primeng/resources/themes/lara-light-blue/theme.css"; */
+/* @import "primeng/resources/primeng.css"; */
+
+body {
+    font-family: "Poppins", sans-serif;
+    /* background-color: var(--bg-black); */
+}
+
+:root {
+    --app-bg-black: #09090b;
+    --app-surface-color: #18181b;
+}
+
+.p-select-label {
+    color: var(--color-white) !important;
+}
+
+.p-select-option {
+    color: var(--color-white) !important;
+}

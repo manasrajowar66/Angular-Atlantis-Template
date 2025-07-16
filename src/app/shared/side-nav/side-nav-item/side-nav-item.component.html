@@ -1,0 +1,31 @@
+<!-- side-nav-item.component.html -->
+<div *ngIf="sideNavItem" class="select-none">
+    <!-- Parent Link OR Toggle -->
+    <div class="text-sm flex items-center justify-between gap-2 py-2 px-4 hover:bg-gray-700/50 rounded-sm cursor-pointer transition-all duration-300"
+        [ngClass]="{ 'bg-gray-700 text-white border-l-4 border-[var(--color-emerald-400)]': isActive }" (click)="toggleCollapse()"
+        *ngIf="sideNavItem?.children?.length; else singleLink">
+        <div class="flex items-center gap-2">
+            <i [class]="sideNavItem.icon"></i>
+            {{ sideNavItem.label }}
+        </div>
+        <i [class]="isCollapsed ? 'pi pi-angle-down' : 'pi pi-angle-up'"></i>
+    </div>
+
+    <!-- Collapsible Children -->
+    <div class="ml-4 overflow-hidden transition-all duration-300 ease-in-out" [ngClass]="{
+    'max-h-0 opacity-0': isCollapsed,
+    'max-h-[500px] opacity-100': !isCollapsed
+  }">
+        <app-side-nav-item *ngFor="let child of sideNavItem.children" [sideNavItem]="child"></app-side-nav-item>
+    </div>
+
+    <!-- Single Router Link -->
+    <ng-template #singleLink>
+        <a class="text-sm flex items-center gap-2 py-2 px-4 hover:bg-gray-700/50 rounded-sm cursor-pointer transition-all duration-300"
+            [routerLink]="[sideNavItem.link]" routerLinkActive="bg-gray-700 text-white border-l-4 border-[var(--p-primary-color)]"
+            [routerLinkActiveOptions]="{ exact: true }">
+            <i [class]="sideNavItem.icon"></i>
+            {{ sideNavItem.label }}
+        </a>
+    </ng-template>
+</div>

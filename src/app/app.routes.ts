@@ -8,6 +8,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        data: { breadcrumb: 'E-Commerce Dashboard' },
         loadComponent: () =>
           import('./pages/dashboard/dashboard.component').then(
             (m) => m.DashboardComponent

@@ -1,22 +1,56 @@
-<div class="grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Welcome</h2>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            This is your dashboard. Use the sidebar to navigate.
-        </p>
+<div class="flex flex-col gap-8">
+    <div class="grid grid-cols-3 gap-4">
+        <div class="bg-[var(--app-surface-color)] rounded-xl p-4 h-28 relative flex items-center">
+          <div class="flex flex-col">
+             <p class="text-sm font-semibold leading-none">Conversion Rate</p>
+             <div class="flex items-center gap-4">
+                 <div class="h-8 w-20 rounded p-2 bg-red-400 flex items-center justify-center !shadow-md shadow-red-400/50">
+                    <i class="pi pi-arrow-down w-8 text-black"></i>
+                    <span class="leading-tight text-black">0.6%</span>
+                 </div>
+                 <span class="leading-loose text-3xl">0.81%</span>
+                 <img src="images/rate.svg" class="absolute inline-block" style="bottom: 14px; right: 12px;">
+             </div>
+          </div>
+        </div>
+
+        <div class="bg-[var(--app-surface-color)] rounded-xl p-4 h-28 relative flex items-center">
+          <div class="flex flex-col">
+             <p class="text-sm font-semibold leading-none">Avg. Order Value</p>
+             <div class="flex items-center gap-4">
+                 <div class="h-8 w-20 rounded p-2 bg-emerald-400 flex items-center justify-center !shadow-md shadow-emerald-400/50">
+                    <i class="pi pi-arrow-up w-8 text-black"></i>
+                    <span class="leading-tight text-black">4.2%</span>
+                 </div>
+                 <span class="leading-loose text-3xl">$306.2</span>
+                 <img src="images/value.svg" class="absolute inline-block" style="bottom: 14px; right: 12px;">
+             </div>
+          </div>
+        </div>
+
+        <div class="bg-[var(--app-surface-color)] rounded-xl p-4 h-28 relative flex items-center">
+          <div class="flex flex-col">
+             <p class="text-sm font-semibold leading-none">Order Quantity</p>
+             <div class="flex items-center gap-4">
+                 <div class="h-8 w-20 rounded p-2 bg-cyan-400 flex items-center justify-center !shadow-md shadow-cyan-400/50">
+                    <i class="pi pi-minus w-8 text-black"></i>
+                    <span class="leading-tight text-black">2,1%</span>
+                 </div>
+                 <span class="leading-loose text-3xl">1,620</span>
+                 <img src="images/quantity.svg" class="absolute inline-block" style="bottom: 14px; right: 12px;">
+             </div>
+          </div>
+        </div>
     </div>
 
-    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Stats</h2>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            Coming soon: user insights, activity and more!
-        </p>
+    <div class="grid grid-cols-3 items-stretch gap-4">
+        <div class="col-span-2">
+            <app-unique-visitor-graph></app-unique-visitor-graph>
+        </div>
+        <div class="col-span-1 flex flex-col h-full max-h-[43.875rem]">
+            <app-transaction-history class="h-full"></app-transaction-history>
+        </div>
     </div>
 
-    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Notifications</h2>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            Stay tuned for real-time updates.
-        </p>
-    </div>
+    <app-customers></app-customers>
 </div>

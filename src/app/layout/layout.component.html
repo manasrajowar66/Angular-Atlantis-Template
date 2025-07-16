@@ -1,5 +1,5 @@
-<div class="flex h-screen bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-gray-100">
-  <img src="images/bg.svg" class="absolute z-[0] opcacity-2" />
+<div class="flex h-screen bg-gray-100 dark:bg-[#111] text-gray-900 dark:text-gray-100">
+  <img src="images/bg.svg" class="absolute z-[0] opacity-[5%] rotate-[-45deg]" />
   <!-- Sidebar -->
   <app-side-nav [isOpen]="isSideNavOpen" class="transition-all duration-300 z-[1]"></app-side-nav>
 
@@ -9,7 +9,7 @@
     <app-top-nav (toggleSidebar)="toggleSidebar()"></app-top-nav>
 
     <!-- Router Content -->
-    <main class="p-4 overflow-auto flex-1">
+    <main class="px-8 py-4 overflow-auto flex-1">
       <router-outlet></router-outlet>
     </main>
   </div>

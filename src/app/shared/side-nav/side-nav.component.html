@@ -1,23 +1,21 @@
-<div [ngClass]="{ 'w-64': isOpen, 'w-16': !isOpen }" class="h-full border-r dark:border-gray-700 p-4 transition-all">
+<div [ngClass]="{ 'w-64 p-4 transform-[translateX(0rem)]': isOpen, 'w-0 p-0 transform-[translateX(-16rem)]': !isOpen }" class="h-full border-r dark:border-gray-700 transition-all duration-300 overflow-hidden">
   <!-- Logo -->
-  <div class="flex items-center justify-center h-12 font-bold text-lg">
-    <span *ngIf="isOpen">MyApp</span>
-    <i *ngIf="!isOpen" class="pi pi-apple text-xl"></i>
-  </div>
+  <a class="flex items-center h-12 font-bold text-lg gap-2" routerLink="/">
+    <img src="images/logo-light.png" class="h-[1.5rem]" />
+    <img src="images/appname-light.png" class="h-[1.5rem]" />
+    <!-- <span *ngIf="isOpen">MyApp</span>
+    <i *ngIf="!isOpen" class="pi pi-apple text-xl"></i> -->
+  </a>
 
   <!-- Nav Items -->
-  <ul class="mt-8 space-y-4">
-    <li class="flex items-center gap-3 cursor-pointer hover:text-blue-600">
-      <i class="pi pi-home"></i>
-      <span *ngIf="isOpen">Dashboard</span>
-    </li>
-    <li class="flex items-center gap-3 cursor-pointer hover:text-blue-600">
-      <i class="pi pi-users"></i>
-      <span *ngIf="isOpen">Users</span>
-    </li>
-    <li class="flex items-center gap-3 cursor-pointer hover:text-blue-600">
-      <i class="pi pi-cog"></i>
-      <span *ngIf="isOpen">Settings</span>
+  <ul class="mt-8 space-y-4 p-4">
+    <li *ngFor="let sideNavItem of sideNavItems">
+      <div class="text-sm font-semibold mb-2">{{ sideNavItem.rootText }}</div>
+      <ul *ngIf="sideNavItem.children">
+        <li *ngFor="let sideNav of sideNavItem.children;">
+          <app-side-nav-item [sideNavItem]="sideNav"></app-side-nav-item>
+        </li>
+      </ul>
     </li>
   </ul>
 </div>

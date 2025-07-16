@@ -29,7 +29,7 @@ export class ThemeService {
   /** Load theme from localStorage on init */
   loadStoredTheme(): void {
     const saved = localStorage.getItem('dark-mode');
-    this.isDarkMode = saved === 'true';
+    this.isDarkMode = true;
     this.applyTheme();
   }
 

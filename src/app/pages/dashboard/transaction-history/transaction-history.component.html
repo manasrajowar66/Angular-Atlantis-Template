@@ -1,0 +1,43 @@
+<div class="bg-[var(--app-surface-color)] rounded-xl h-full flex flex-col">
+    <div class="flex items-center justify-between gap-4 p-4">
+        <span class="text-sm">Transaction History</span>
+        <div class="flex items-center">
+            <div pRipple
+                class="text-gray-400 w-[2rem] h-[2rem] rounded-full flex items-center justify-center cursor-pointer">
+                <i class="pi pi-refresh"></i>
+            </div>
+            <div pRipple
+                class="text-gray-400 w-[2rem] h-[2rem] rounded-full flex items-center justify-center cursor-pointer">
+                <i class="pi pi-filter"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="overflow-auto flex-1 px-4 pb-4">
+        <p-timeline [value]="transactions" align="left" styleClass="customized-timeline">
+            <ng-template #marker let-event>
+                <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm"
+                    [style]="{ 'background-color': event.color }">
+                    <i [class]="event.icon"></i>
+                </span>
+            </ng-template>
+            <ng-template #content let-event>
+                <div class="flex text-sm justify-between gap-4">
+                    <div class="flex flex-col gap-1">
+                        <span class="font-semibold">{{ event.title }}</span>
+                        <span class="text-gray-400">{{ event.date | date:'MMMM d, y h:mm a' }}</span>
+                    </div>
+
+                    <div>
+                        <span class="font-semibold" [style]="{ 'color': event.color }">{{ event.amount }}</span>
+                    </div>
+                </div>
+            </ng-template>
+        </p-timeline>
+    </div>
+
+    <div class="flex items-center justify-center p-4 border-t border-gray-600 shrink-0">
+        <a href="#" class="text-emerald-400 text-sm">View all transactions</a>
+    </div>
+</div>
