@@ -8,7 +8,7 @@
 
         <p-dataView [value]="blogs()" layout="grid" styleClass="w-full" [rows]="3" [paginator]="true">
             <ng-template #grid let-blogs>
-                <div class="grid grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <div *ngFor="let blog of blogs"
                         class="bg-[#3f3f46] rounded flex flex-col overflow-hidden cursor-pointer !shadow-lg hover:!shadow-xl transition-shadow duration-300">
                         <div class="relative">
@@ -47,13 +47,19 @@
        <div class="px-6 py-20 bg-black/50">
         <header class="text-5xl font-bold mb-4">Recent Articles</header>
         <p class="text-lg leading-normal mb-8">Stay updated with the latest articles from our blog.</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div *ngFor="let article of recentArticles()" class="bg-[#3f3f46] rounded-lg p-6 mb-4">
-                <h3 class="text-xl font-semibold mb-2">{{ article.title }}</h3>
-                <p class="text-sm mb-4">{{ article.content }}</p>
-                <div class="flex items-center justify-between text-sm text-gray-400">
-                    <span><i class="pi pi-calendar"></i> {{ article.date | date:'MMM d, y' }}</span>
-                    <span><i class="pi pi-tag"></i> {{ article.tag }}</span>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div *ngFor="let article of recentArticles()" class="rounded-lg p-6 flex flex-col">
+                <div [style.borderColor]="article.color" class="border-t-4"></div>
+                <span class="text-sm my-2 font-medium" [style]="{ 'color': article.color }">{{ article.tag }}</span>
+                <h3 class="text-lg font-medium mb-6 leading-normal">{{ article.title }}</h3>
+                <p class="text-sm leading-normal mb-6">{{ article.content }}</p>
+                <div class="flex items-center gap-2 mt-auto">
+                    <img [src]="'https://i.pravatar.cc/40'" alt="Author Image"
+                        class="w-10 h-10 rounded-full" loading="lazy" />
+                    <div class="flex flex-col">
+                        <span class="text-sm font-medium">{{ article.creator }}</span>
+                        <span class="text-xs text-gray-400">{{ article.date | date:'MMM d, y' }}</span>
+                    </div>
                 </div>
             </div>
         </div>

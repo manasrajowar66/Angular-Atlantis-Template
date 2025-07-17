@@ -108,7 +108,8 @@ export class ListComponent {
                 "shareCount": 102,
                 "date": "2024-11-08",
                 "tag": "Animal",
-                "creator": "Rhea Verma"
+                "creator": "Rhea Verma",
+                "color": "var(--color-blue-400)"
             },
             {
                 "title": "Why Trees Are Called the Lungs of the Earth",
@@ -117,7 +118,8 @@ export class ListComponent {
                 "shareCount": 147,
                 "date": "2025-01-19",
                 "tag": "Nature",
-                "creator": "Dr. Aditya Bose"
+                "creator": "Dr. Aditya Bose",
+                "color": "var(--color-pink-400)"
             },
             {
                 "title": "Wildlife in the Himalayas: Adaptation and Survival",
@@ -126,7 +128,8 @@ export class ListComponent {
                 "shareCount": 83,
                 "date": "2025-04-03",
                 "tag": "Animal",
-                "creator": "Mehul Singh"
+                "creator": "Mehul Singh",
+                "color": "var(--color-orange-400)"
             }
         ]);
     }
