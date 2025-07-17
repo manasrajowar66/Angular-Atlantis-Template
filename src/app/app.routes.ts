@@ -14,6 +14,14 @@ export const routes: Routes = [
             (m) => m.DashboardComponent
           ),
       },
+      {
+        path: 'apps',
+        data: { breadcrumb: 'Apps' },
+        loadChildren: () =>
+          import('./pages/apps/apps.routes').then(
+            (m) => m.default
+          ),
+      },
     ],
   },
 ];

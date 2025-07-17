@@ -1,7 +1,7 @@
 <!-- side-nav-item.component.html -->
 <div *ngIf="sideNavItem" class="select-none">
     <!-- Parent Link OR Toggle -->
-    <div class="text-sm flex items-center justify-between gap-2 py-2 px-4 hover:bg-gray-700/50 rounded-sm cursor-pointer transition-all duration-300"
+    <div class="text-sm mb-2 flex items-center justify-between gap-2 py-2 px-4 hover:bg-gray-700/50 rounded-sm cursor-pointer transition-all duration-300"
         [ngClass]="{ 'bg-gray-700 text-white border-l-4 border-[var(--color-emerald-400)]': isActive }" (click)="toggleCollapse()"
         *ngIf="sideNavItem?.children?.length; else singleLink">
         <div class="flex items-center gap-2">

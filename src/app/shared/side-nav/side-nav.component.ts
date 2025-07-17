@@ -37,24 +37,24 @@ export class SideNavComponent {
       rootText: "Apps",
       children: [
           {
-            label: "Blogs",
+            label: "Blog",
             icon: "pi pi-comment",
-            link: "/apps/blogs",
+            link: "/apps/blog",
             children: [
               {
                 label: "List",
                 icon: "pi pi-image",
-                link: "/apps/blogs/list",
+                link: "/apps/blog/list",
               },
               {
                 label: "Details",
                 icon: "pi pi-list",
-                link: "/apps/blogs/details",
+                link: "/apps/blog/details",
               },
               {
                 label: "Edit",
                 icon: "pi pi-pencil",
-                link: "/apps/blogs/edit",
+                link: "/apps/blog/edit",
               }
             ]
           },

@@ -1,0 +1,61 @@
+<div class="flex flex-col gap-4">
+    <div class="bg-[var(--app-surface-color)] rounded-xl p-4">
+        <div class="flex items-center justify-between">
+            <header class="text-xl font-semibold">Articles</header>
+        </div>
+
+        <p-divider />
+
+        <p-dataView [value]="blogs()" layout="grid" styleClass="w-full" [rows]="3" [paginator]="true">
+            <ng-template #grid let-blogs>
+                <div class="grid grid-cols-3 gap-4">
+                    <div *ngFor="let blog of blogs"
+                        class="bg-[#3f3f46] rounded flex flex-col overflow-hidden cursor-pointer !shadow-lg hover:!shadow-xl transition-shadow duration-300">
+                        <div class="relative">
+                            <img [src]="'https://picsum.photos/1600/900'" alt="Blog Image"
+                                class="w-full h-48 object-cover rounded-b" loading="lazy" />
+                            <img [src]="'https://i.pravatar.cc/40'" alt="Blog Image"
+                                class="absolute bottom-[-1.75rem] right-4 w-14 h-14 rounded-full !shadow-md"
+                                loading="lazy" />
+                        </div>
+                        <div class="p-4 pt-8 flex flex-col mt-auto">
+                            <h2 class="text-lg font-semibold line-clamp-2 mb-3.5">{{ blog.title }}</h2>
+                            <p class="text-sm mb-8 line-clamp-3">
+                                {{ blog.content }}
+                            </p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-2 text-sm">
+                                    <i class="pi pi-comment"></i>
+                                    {{ blog.commentCount }}
+                                </div>
+                                <div class="flex items-center gap-2 text-sm">
+                                    <i class="pi pi-share-alt"></i>
+                                    {{ blog.shareCount }}
+                                </div>
+                                <div class="flex items-center gap-2 text-sm">
+                                    <i class="pi pi-clock"></i>
+                                    {{ blog.date | date:'MMM d' }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+    </div>
+    <div class="bg-[var(--app-surface-color)] rounded-xl p-4">
+       <div class="px-6 py-20 bg-black/50">
+        <header class="text-5xl font-bold mb-4">Recent Articles</header>
+        <p class="text-lg leading-normal mb-8">Stay updated with the latest articles from our blog.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div *ngFor="let article of recentArticles()" class="bg-[#3f3f46] rounded-lg p-6 mb-4">
+                <h3 class="text-xl font-semibold mb-2">{{ article.title }}</h3>
+                <p class="text-sm mb-4">{{ article.content }}</p>
+                <div class="flex items-center justify-between text-sm text-gray-400">
+                    <span><i class="pi pi-calendar"></i> {{ article.date | date:'MMM d, y' }}</span>
+                    <span><i class="pi pi-tag"></i> {{ article.tag }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
